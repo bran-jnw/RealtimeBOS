@@ -11,7 +11,7 @@ public enum FrameReference { StaticFrame = 0, PreviousFrame, TemporalSmoothing}
 public enum CaptureSource{ WebCam = 0, Video }
 
 
-public class BOS : MonoBehaviour
+public class RealtimeBOS : MonoBehaviour
 {
     [SerializeField] CaptureSource captureSource = CaptureSource.WebCam;
     [SerializeField] string cameraName;
@@ -26,6 +26,7 @@ public class BOS : MonoBehaviour
     [SerializeField] bool averageOutput = true;
     [SerializeField] float newOutputFrameWeight = 0.05f;
     [SerializeField] bool processBOS = true;
+    [SerializeField] bool _saveToDisk = false;
 
 
     WebCamTexture m_camTexture;
@@ -219,6 +220,10 @@ public class BOS : MonoBehaviour
                         Graphics.Blit(singleFrameResult, destination);
                     }
 
+                    if(_saveToDisk)
+                    {
+                        SaveTextureToFileUtility.SaveRenderTextureToFile(singleFrameResult, System.IO.Path.Combine(System.IO.Directory.GetParent(Application.dataPath).FullName, "_output", videoFrameCount.ToString()), SaveTextureToFileUtility.SaveTextureFileFormat.PNG);
+                    }
                 }
                 else
                 {
@@ -245,6 +250,7 @@ public class BOS : MonoBehaviour
                 Graphics.SetRenderTarget(bufferedInputFrame);
                 //Graphics.Blit(bufferedFrame, destination);
             }
+            
         }        
         //do nothing
         else

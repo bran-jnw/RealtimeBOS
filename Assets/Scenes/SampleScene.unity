@@ -231,8 +231,8 @@ MonoBehaviour:
   saveReferenceNow: 0
   useGreyScale: 1
   deNoise: 0
-  averageOutput: 1
-  newOutputFrameWeight: 0.02
+  averageOutput: 0
+  newOutputFrameWeight: 1
   processBOS: 1
 --- !u!328 &963194230
 VideoPlayer:
@@ -242,7 +242,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 34da5ee23502eda49a2f2dc75a06e01f, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 33da60e8ff42f2145b0ed5092ee5ae07, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 963194227}
@@ -265,7 +265,7 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
-  m_Looping: 1
+  m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
